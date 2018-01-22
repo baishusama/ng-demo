@@ -1,7 +1,7 @@
 import { HeroDetailComponent } from './hero-detail.component';
-import { Hero }                from '../model';
+import { Hero }                from '../model/hero';
 
-import { ActivatedRouteStub }  from '../../testing';
+import { ActivatedRouteStub }  from '../../testing/router-stubs';
 
 //////////  Tests  ////////////////////
 

@@ -6,10 +6,13 @@ import { By }           from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import {
-  ActivatedRoute, ActivatedRouteStub, click, newEvent, Router, RouterStub
-} from '../../testing';
+  ActivatedRoute, ActivatedRouteStub, Router, RouterStub
+} from '../../testing/router-stubs';
+import {
+  click, newEvent
+} from '../../testing/index';
 
-import { Hero }                from '../model';
+import { Hero }                from '../model/hero';
 import { HeroDetailComponent } from './hero-detail.component';
 import { HeroDetailService }   from './hero-detail.service';
 import { HeroModule }          from './hero.module';
@@ -112,14 +115,14 @@ function overrideSetup() {
   it('fixture injected service is not the component injected service',
     inject([HeroDetailService], (service: HeroDetailService) => {
 
-    expect(service).toEqual({}, 'service injected from fixture');
+    expect(service).toEqual({} as HeroDetailService, 'service injected from fixture');
     expect(hdsSpy).toBeTruthy('service injected into component');
   }));
 }
 
 ////////////////////
-import { HEROES, FakeHeroService } from '../model/testing';
-import { HeroService }             from '../model';
+import { HEROES, FakeHeroService } from '../model/testing/fake-hero.service';
+import { HeroService }             from '../model/hero.service';
 
 const firstHero = HEROES[0];
 

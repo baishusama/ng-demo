@@ -7,12 +7,12 @@ import { DebugElement } from '@angular/core';
 import { addMatchers, newEvent, Router, RouterStub
 } from '../../testing';
 
-import { HEROES, FakeHeroService } from '../model/testing';
+import { HEROES, FakeHeroService } from '../model/testing/fake-hero.service';
 
 import { HeroModule }         from './hero.module';
 import { HeroListComponent }  from './hero-list.component';
 import { HighlightDirective } from '../shared/highlight.directive';
-import { HeroService }        from '../model';
+import { HeroService }        from '../model/hero.service';
 
 let comp: HeroListComponent;
 let fixture: ComponentFixture<HeroListComponent>;
@@ -42,7 +42,7 @@ describe('HeroListComponent', () => {
   it('1st hero should match 1st test hero', () => {
     const expectedHero = HEROES[0];
     const actualHero = page.heroRows[0].textContent;
-    expect(actualHero).toContain(expectedHero.id, 'hero.id');
+    expect(actualHero).toContain(`${expectedHero.id}`, 'hero.id');
     expect(actualHero).toContain(expectedHero.name, 'hero.name');
   });
 
